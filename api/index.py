@@ -11,3 +11,7 @@ def home():
 @app.route("/test")
 def test():
     return render_template("index.html", title="tester", username="hungrymonkey")
+
+
+if __name__ == "__main__":
+    app.run()
