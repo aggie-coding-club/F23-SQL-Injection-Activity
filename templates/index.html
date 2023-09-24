@@ -7,36 +7,19 @@
     <meta name="description" content="A simple template for the Flask framework featuring easy deployment via Vercel">
     <link rel="icon" type="image/svg+xml" href="../static/flask.svg">
     <link rel="stylesheet" type="text/css" href="../static/styles.css">
-    <title>Flask Template</title>
+    <title>Login Page</title>
 
 </head>
 <body>
 
-    <div class="container">
-
-        <div class="info">
-            <div class="edit">
-                Start editing in the <strong>api/</strong> directory
-            </div>
-            <div class="stamp">
-                Made with 💚 by Warren Wu
-            </div>
-        </div>
-
-        <div class="content">
-            <img class="logo" alt="Flask logo" src="../static/flask.svg"/>
-            Flask Template
-        </div>
-
-        <div class="links">
-            <div class="link-container">
-                <div class="title">Learn Flask</div>
-                <div class="desc">Learn how Flask work from the official documentation</div>
-            </div>
-
-        </div>
-
-    </div>
+    <form class="index-form" method="post" action="/dashboard">
+        <h1 class="index-title">Login!</h1>
+        <label class="index-label">username:</label>
+        <input type="text" name="username" class="index-input" required/>
+        <label class="index-label">password:</label>
+        <input type="password" name="password" class="index-input" required/>
+        <button type="submit" class="index-button">submit</button>
+    </form>
 
 </body>
 </html>

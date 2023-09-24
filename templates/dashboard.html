@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="A simple template for the Flask framework featuring easy deployment via Vercel">
+    <link rel="icon" type="image/svg+xml" href="../static/flask.svg">
+    <link rel="stylesheet" type="text/css" href="../static/styles.css">
+    <title>Dashboard</title>
+
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <h1 class="dashboard-title">Dashboard</h1>
+        <table class="dashboard-table">
+            <tr class="dashboard-row">
+                <th class="dashboard-username">usernames</th>
+                <th class="dashboard-password">passwords</th>
+            </tr>
+            {% for user in users %}
+                <tr class="dashboard-row">
+                    <td class="dashboard-username">{{ user["username"] }}</td>
+                    <td class="dashboard-password">{{ user["pass"] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+</body>
+</html>
