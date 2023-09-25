@@ -1,10 +1,9 @@
 from flask import Flask, render_template, request, redirect
 from hashlib import sha1
 import sqlite3
-from dotenv import dotenv_values
+import os
 
 app = Flask(__name__)
-env = dotenv_values(".env")
 
 
 @app.route("/")
@@ -20,7 +19,8 @@ def ctfLogin():
 @app.route("/ctf", methods=["POST"])
 def ctf():
     password = request.form.get("password")
-    if password == env["CTF_PASSWORD"]:
+    actual_password = os.environ.get("CTF_PASSWORD")
+    if password == actual_password:
         return render_template("ctf.html")
     else:
         return redirect("/ctflogin")
