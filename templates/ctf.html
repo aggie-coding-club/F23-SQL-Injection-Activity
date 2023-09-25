@@ -11,26 +11,32 @@
 </head>
 <body>
 
-    <form class="index-form" method="post" action="/ctfvalidate">
-        <h1 class="index-title">cat in the hat</h1>
-        <label class="index-label">insert shitty description here</label>
-        <input type="password" name="password" class="index-input" placeholder="accCTF{code}" required/>
-        <button type="submit" class="index-button">submit</button>
-    </form>
+    <div class="ctf-problem-container">
+        <form class="index-form" method="post" action="/ctfvalidate">
+            <h1 class="index-title">cat in the hat</h1>
+            <label class="index-label">
+                download
+                <a href="/static/flag1" download="flag">this</a>
+                file and get the contents of it
+            </label>
+            {% if problems[0] %}
+                <input type="text" name="code" class="index-input" placeholder="accCTF{code}" disabled/>
+            {% else %}
+                <input type="text" name="code" class="index-input" placeholder="accCTF{code}" required/>
+            {% endif %}
+            <input type="text" value="0" name="id" required style="display: none;" readonly/>
+            {% if problems[0] %}
+                <button type="submit" class="completed" disabled>submit</button>
+            {% else %}
+                <button type="submit" class="incomplete">submit</button>
+            {% endif %}
 
-    <form class="index-form" method="post" action="/ctfvalidate">
-        <h1 class="index-title">cat in the hat</h1>
-        <label class="index-label">insert shitty description here</label>
-        <input type="password" name="password" class="index-input" placeholder="accCTF{code}" required/>
-        <button type="submit" class="index-button">submit</button>
-    </form>
+        </form>
+    </div>
 
-    <form class="index-form" method="post" action="/ctfvalidate">
-        <h1 class="index-title">cat in the hat</h1>
-        <label class="index-label">insert shitty description here</label>
-        <input type="password" name="password" class="index-input" placeholder="accCTF{code}" required/>
-        <button type="submit" class="index-button">submit</button>
-    </form>
+    <div class="popup">
+        {{ message }}
+    </div>
 
 </body>
 </html>

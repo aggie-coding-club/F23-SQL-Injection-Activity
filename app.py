@@ -5,10 +5,29 @@ import os
 
 app = Flask(__name__)
 
+# ! track completion state of problems, add default False for each problem
+problems = [False]
+
 
 @app.route("/")
 def home():
     return render_template("index.html")
+
+
+@app.route("/ctfvalidate", methods=["POST"])
+def ctfValidate():
+    code = request.form.get("code")
+    id = request.form.get("id")
+    if id == "0" and code == f"accCTF({os.environ.get('accCTF1')})":
+        problems[0] = True
+        return render_template(
+            "ctf.html", message="Correct! Challenge 1 Complete!", problems=problems
+        )
+    return render_template(
+        "ctf.html",
+        message="uhoh, looks like you did something wrong... ask an officer if ur confused :)",
+        problems=problems,
+    )
 
 
 @app.route("/ctflogin")
@@ -21,7 +40,7 @@ def ctf():
     password = request.form.get("password")
     actual_password = os.environ.get("CTF_PASSWORD")
     if password == actual_password:
-        return render_template("ctf.html")
+        return render_template("ctf.html", message="", problems=problems)
     else:
         return redirect("/ctflogin")
 
