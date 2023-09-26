@@ -19,17 +19,9 @@
                 <a href="/static/flag1" download="flag">this</a>
                 file and get the contents of it
             </label>
-            {% if problems[0] %}
-                <input type="text" name="code" class="index-input" placeholder="accCTF{code}" disabled/>
-            {% else %}
                 <input type="text" name="code" class="index-input" placeholder="accCTF{code}" required/>
-            {% endif %}
             <input type="text" value="0" name="id" required style="display: none;" readonly/>
-            {% if problems[0] %}
-                <button type="submit" class="completed" disabled>submit</button>
-            {% else %}
                 <button type="submit" class="incomplete">submit</button>
-            {% endif %}
 
         </form>
 
@@ -39,17 +31,9 @@
                 hmmm, if only there was a way to search for accCTF in the
                 <a href="/static/flag2" download="flag">file</a>
             </label>
-            {% if problems[1] %}
-                <input type="text" name="code" class="index-input" placeholder="accCTF{code}" disabled/>
-            {% else %}
                 <input type="text" name="code" class="index-input" placeholder="accCTF{code}" required/>
-            {% endif %}
             <input type="text" value="1" name="id" required style="display: none;" readonly/>
-            {% if problems[1] %}
-                <button type="submit" class="completed" disabled>submit</button>
-            {% else %}
                 <button type="submit" class="incomplete">submit</button>
-            {% endif %}
 
         </form>
 
@@ -61,17 +45,9 @@
                 <a href="/static/flag3.py" download="decrypter">python file</a>
                 then decrypt to get the flag!
             </label>
-            {% if problems[2] %}
-                <input type="text" name="code" class="index-input" placeholder="accCTF{code}" disabled/>
-            {% else %}
                 <input type="text" name="code" class="index-input" placeholder="accCTF{code}" required/>
-            {% endif %}
             <input type="text" value="2" name="id" required style="display: none;" readonly/>
-            {% if problems[2] %}
-                <button type="submit" class="completed" disabled>submit</button>
-            {% else %}
                 <button type="submit" class="incomplete">submit</button>
-            {% endif %}
 
         </form>
     </div>
