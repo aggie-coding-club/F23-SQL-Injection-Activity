@@ -18,10 +18,22 @@ def home():
 def ctfValidate():
     code = request.form.get("code")
     id = request.form.get("id")
+    print(code)
+    print(os.environ.get("accCTF1"))
     if id == "0" and code == f"accCTF({os.environ.get('accCTF1')})":
         problems[0] = True
         return render_template(
             "ctf.html", message="Correct! Challenge 1 Complete!", problems=problems
+        )
+    if id == "1" and code == f"accCTF({os.environ.get('accCTF2')})":
+        problems[1] = True
+        return render_template(
+            "ctf.html", message="Correct! Challenge 2 Complete!", problems=problems
+        )
+    if id == "2" and code == f"accCTF({os.environ.get('accCTF3')})":
+        problems[2] = True
+        return render_template(
+            "ctf.html", message="Correct! Challenge 3 Complete!", problems=problems
         )
     return render_template(
         "ctf.html",
