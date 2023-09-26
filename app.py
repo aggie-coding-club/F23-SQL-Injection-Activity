@@ -6,7 +6,7 @@ import os
 app = Flask(__name__)
 
 # ! track completion state of problems, add default False for each problem
-problems = [False]
+problems = [False, False, False]
 
 
 @app.route("/")
